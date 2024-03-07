@@ -1,53 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="index.php" method="post">
+        <label for="quantity">Quantity:</label><br>
+        <input type="text" name="quantity"><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
 <?php
 
-//Arithmetic Operator
+$item = "pizza";
+$price = 4;
+$quantity = $_POST["quantity"];
 
-$x = 10;
-$y = 2;
-$z = null;
+$total = null;
 
-// +
-$z = $x + $y;
-echo $z, "<br>";        //12
+echo "You have ordered {$quantity}x of {$item}s.<br>";
+$total = $quantity * $price;
+echo "Your total is \${$total}.";
 
-
-// -
-$z = $x - $y;
-echo $z, "<br>";        //
-
-// *
-$z = $x * $y;
-echo $z, "<br>";        //20
-
-
-// /
-$z = $x / $y;
-echo $z, "<br>";        //5
-
-
-// **
-$z = $x ** $y;
-echo $z, "<br>";        //100
-
-
-// %
-$z = $x % $y;
-echo $z, "<br>";        //0
-
-//Increment Operator | ++ 
-
-$counter = 0;
-
-$counter++;
-echo $counter, "<br>";
-
-//Decrement Operator | --
-
-$counter--;
-echo $counter, "<br>";
-
-//Operator Precedence
-//  () - parenthesis
-//  **
-//  * / %
-// + -
+?>
