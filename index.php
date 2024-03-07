@@ -1,15 +1,53 @@
 <?php
 
-$food = "pizza";
+//Arithmetic Operator
 
-$quantity = 100;
+$x = 10;
+$y = 2;
+$z = null;
 
-$price = 4.99;
+// +
+$z = $x + $y;
+echo $z, "<br>";        //12
 
-$total = null;
 
-echo "Your order of {$quantity}x {$food}s is ready<br>";
+// -
+$z = $x - $y;
+echo $z, "<br>";        //
 
-$total = $quantity * $price;
+// *
+$z = $x * $y;
+echo $z, "<br>";        //20
 
-echo "Total price is: \${$total}";
+
+// /
+$z = $x / $y;
+echo $z, "<br>";        //5
+
+
+// **
+$z = $x ** $y;
+echo $z, "<br>";        //100
+
+
+// %
+$z = $x % $y;
+echo $z, "<br>";        //0
+
+//Increment Operator | ++ 
+
+$counter = 0;
+
+$counter++;
+echo $counter, "<br>";
+
+//Decrement Operator | --
+
+$counter--;
+echo $counter, "<br>";
+
+//Operator Precedence
+//  () - parenthesis
+//  **
+//  * / %
+// + -
