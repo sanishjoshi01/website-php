@@ -10,24 +10,28 @@
 
 <body>
     <form action="index.php" method="post">
-        <label for="quantity">Quantity:</label><br>
-        <input type="text" name="quantity"><br>
-        <input type="submit">
+        <label for="radius">radius:</label><br>
+        <input type="text" name="radius"><br>
+        <input type="submit" value="calculate">
     </form>
 </body>
 
 </html>
 
 <?php
+$radius = $_POST["radius"];
+$circumference = null;
+$area = null;
+$volume = null;
 
-$item = "pizza";
-$price = 4;
-$quantity = $_POST["quantity"];
+$circumference = 2 * pi() * $radius;
+$circumference = round($circumference, 2);
 
-$total = null;
+$area = round(pi() * pow($radius, 2), 2);
 
-echo "You have ordered {$quantity}x of {$item}s.<br>";
-$total = $quantity * $price;
-echo "Your total is \${$total}.";
+$volume = round(4 / 3 * pi() * pow($radius, 3), 2);
 
+echo "Circumference: {$circumference}<br>";
+echo "Area: {$area}<br>";
+echo "Volume: {$volume}<br>";
 ?>
