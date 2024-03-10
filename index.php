@@ -11,9 +11,7 @@
 <body>
 
     <form action="index.php" method="post">
-        <label for="number">Enter a number to count to: </label>
-        <input type="text" name="number">
-        <input type="submit" value="submit">
+        <input type="submit" name="stop" value="stop">
     </form>
 </body>
 
@@ -21,10 +19,16 @@
 
 <?php
 
-//for loop repeat the code for certain amount of times
 
-$counter = $_POST["number"];
+$seconds = 0;
 
-for ($i = 1; $i <= $counter; $i++) {
-    echo $i, "<br>";
+$running = true;
+
+while ($running) {
+    if (isset($_POST["stop"])) {
+        $running = false;
+    } else {
+        $seconds++;
+        echo $seconds . "<br>";
+    }
 }
