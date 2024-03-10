@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <form action="index.php" method="post">
-        <input type="submit" name="stop" value="stop">
-    </form>
-</body>
-
-</html>
-
 <?php
 
+$foods = array("apple", "banana", "orange", "lemon");
 
-$seconds = 0;
+$foods[0] = "pineapple";
+array_push($foods, "coconut");
+array_pop($foods);
+array_shift($foods);
+array_unshift($foods, "pineapple");
+echo count($foods) . "<br>";
 
-$running = true;
+$reversed_array = array_reverse($foods);
 
-while ($running) {
-    if (isset($_POST["stop"])) {
-        $running = false;
-    } else {
-        $seconds++;
-        echo $seconds . "<br>";
-    }
+
+foreach ($foods as $food) {
+    echo $food . "<br>";
 }
