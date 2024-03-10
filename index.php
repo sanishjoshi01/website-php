@@ -1,17 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="index.php" method="post">
+        <label for="name">Enter a country: </label>
+        <input type="text" name="name">
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
 <?php
 
-$foods = array("apple", "banana", "orange", "lemon");
+//associative array - array made of key => value pairs
+//countries => capitals
+//id => username
+//item => price
 
-$foods[0] = "pineapple";
-array_push($foods, "coconut");
-array_pop($foods);
-array_shift($foods);
-array_unshift($foods, "pineapple");
-echo count($foods) . "<br>";
+$countries = array(
+    "USA" => "Washington DC",
+    "Nepal" => "Kathmandu",
+    "India" => "New Delhi",
+    "South Korea" => "Seoul"
+);
 
-$reversed_array = array_reverse($foods);
+// $countries["USA"] = "DC";
+// $countries["Japan"] = "Kotyo";
+// array_pop($countries);
+// array_shift($countries);
 
+// $keys = array_keys($countries);
+// $values = array_values($countries);
 
-foreach ($foods as $food) {
-    echo $food . "<br>";
-}
+// $countries = array_flip($countries);
+// $countries = array_reverse($countries);
+
+$input = $countries[$_POST["name"]];
+echo $input;
