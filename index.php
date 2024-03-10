@@ -1,33 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <form action="index.php" method="post">
+        <label for="number">Enter a number to count to: </label>
+        <input type="text" name="number">
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
+
 <?php
 
-//switch - replacement to using many elseif statements
-// more efficient less code to writ
+//for loop repeat the code for certain amount of times
 
-$date = date("l");
-$date = "Friday";
+$counter = $_POST["number"];
 
-switch ($date) {
-    case "Sunday":
-        echo "I hate Sundays";
-        break;
-    case "Monday":
-        echo "Mon Mon day is today";
-        break;
-    case "Tuesday":
-        echo "Its Taco Tuesday";
-        break;
-    case "Wednesday":
-        echo "half day of the week";
-        break;
-    case "Thursday":
-        echo "Its almost the weekend";
-        break;
-    case "Friday":
-        echo "day before the weekend";
-        break;
-    case "Saturday":
-        echo "Finally the weekend";
-        break;
-    default:
-        echo "not a valid date";
+for ($i = 1; $i <= $counter; $i++) {
+    echo $i, "<br>";
 }
