@@ -10,37 +10,34 @@
 
 <body>
     <form action="index.php" method="post">
-        <label for="name">Enter a country: </label>
-        <input type="text" name="name">
-        <input type="submit" value="submit">
+        <label for="username">Username: </label><br>
+        <input type="text" name="username"><br>
+        <label for="password">Password: </label><br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="login" value="Log in"><br>
     </form>
 </body>
 
 </html>
 <?php
+//isset() - returns true if a variable is declared and not null
+//empty() - returns true if a variable is not declared, false, null, "" (empty)
 
-//associative array - array made of key => value pairs
-//countries => capitals
-//id => username
-//item => price
+//behind the scenes of the post super global variable as it has key and value pairs.
+foreach ($_POST as $key => $value) {
+    echo "{$key} = {$value} <br>";
+}
 
-$countries = array(
-    "USA" => "Washington DC",
-    "Nepal" => "Kathmandu",
-    "India" => "New Delhi",
-    "South Korea" => "Seoul"
-);
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-// $countries["USA"] = "DC";
-// $countries["Japan"] = "Kotyo";
-// array_pop($countries);
-// array_shift($countries);
-
-// $keys = array_keys($countries);
-// $values = array_values($countries);
-
-// $countries = array_flip($countries);
-// $countries = array_reverse($countries);
-
-$input = $countries[$_POST["name"]];
-echo $input;
+    if (empty($username)) {
+        echo "Username is missing";
+    } elseif (empty($password)) {
+        echo "Password is missing";
+    } else {
+        echo "hello {$username}";
+    }
+}
+?>
