@@ -13,7 +13,7 @@ include("header.html");
 </head>
 
 <body>
-    This is home page
+    This is contact page
 </body>
 
 </html>
