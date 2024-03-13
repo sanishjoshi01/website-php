@@ -1,34 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="index.php" method="post">
+        username: <br>
+        <input type="text" name="username"><br>
+        age: <br>
+        <input type="text" name="age"><br>
+        email: <br>
+        <input type="text" name="email"><br>
+        <input type="submit" name="submit"><br>
+    </form>
+</body>
+
+</html>
+
 <?php
 
-$username = "John Doe";
-$phone = "123-456-7890";
+if (isset($_POST["submit"])) {
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    // $age = filter_input(INPUT_POST, "age", FILTER_SANITIZE_NUMBER_INT);
+    // $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
 
+    $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT);
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 
-// $username = strtolower($username);
-// $username = strtoupper($username);
-// $username = trim($username);
-
-// $username = str_pad($username, 10, 0);
-// John Doe00
-
-// $phone = str_replace("-", "", $phone);
-//1234567890
-
-// $username = strrev($username);
-// $username = str_shuffle($username);
-// $username = strcmp($username, "John Doe");
-
-// $username = strlen($username);
-// $username = strpos($username, " ");
-
-// $firstname = substr($username, 0, 4);
-// $lastname = substr($username, 4);
-// $fullname = explode(" ", $username);
-
-// foreach ($fullname as $name) {
-//     echo  $name . "<br>";
-// }
-$username2 = array("John", "Doe", "Great");
-$username2 = implode("-", $username2);
-
-echo $username2;
+    if (empty($email)) {
+        echo "not valid number/email";
+    } else {
+        echo "Email: {$email}";
+    }
+}
+?>
