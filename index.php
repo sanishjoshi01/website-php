@@ -1,10 +1,42 @@
 <?php
+session_start();
 
-setcookie("fav_food", "burger", time() + (86500 * 2), "/");
-setcookie("fav_drinks", "sprite", time() + (86500 * 2), "/");
-setcookie("fav_dessert", "ice cream", time() + (86500 * 2), "/");
+?>
 
+<!DOCTYPE html>
+<html lang="en">
 
-foreach ($_COOKIE as $key => $value) {
-    echo "{$key} = {$value} <br>";
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="index.php" method="post">
+        username: <br>
+        <input type="text" name="username"><br>
+        password: <br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="login" value="login">
+    </form>
+</body>
+
+</html>
+
+<?php
+if (isset($_POST["login"])) {
+    if (
+        !empty($_POST["username"]) &&
+        !empty($_POST["password"])
+    ) {
+        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["password"] = $_POST["password"];
+
+        header("Location: home.php");
+    } else {
+        echo "username/password missing";
+    }
 }
+?>
