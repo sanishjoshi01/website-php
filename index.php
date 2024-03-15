@@ -1,19 +1,18 @@
 <?php
 include("database.php");
-?>
 
-<!DOCTYPE html>
-<html lang="en">
+$username = "Sandy";
+$password = "Sanish123";
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
-<head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+$sql = "INSERT INTO users (username, password)
+        VALUES ('$username','$hash')";
 
-<body>
-    Home Page
-</body>
+try {
+    mysqli_query($conn, $sql);
+    echo "Registered";
+} catch (mysqli_sql_exception) {
+    echo "Could not register or user already exists";
+}
 
-</html>
+mysqli_close($conn);
