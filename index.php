@@ -1,13 +1,19 @@
 <?php
+include("database.php");
+?>
 
+<!DOCTYPE html>
+<html lang="en">
 
-$password = "pizza123";
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
+<body>
+    Home Page
+</body>
 
-$hash = password_hash($password, PASSWORD_DEFAULT);
-
-if (password_verify("pizza123", $hash)) {
-    echo "logged in";
-} else {
-    echo "incorrect password";
-}
+</html>
