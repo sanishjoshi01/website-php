@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <body>
-    <form action="index.php" method="post">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         username: <br>
         <input type="text" name="username"><br>
         password: <br>
