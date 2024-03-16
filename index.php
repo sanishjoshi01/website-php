@@ -1,18 +1,16 @@
 <?php
 include("database.php");
 
-$username = "Sandy";
-$password = "Sanish123";
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$sql = "SELECT * FROM users";
 
-$sql = "INSERT INTO users (username, password)
-        VALUES ('$username','$hash')";
+$result = mysqli_query($conn, $sql);
 
-try {
-    mysqli_query($conn, $sql);
-    echo "Registered";
-} catch (mysqli_sql_exception) {
-    echo "Could not register or user already exists";
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo $row["id"] . "<br>";
+        echo $row["username"] . "<br>";
+        echo $row["reg_date"] . "<br>";
+    }
 }
 
 mysqli_close($conn);
